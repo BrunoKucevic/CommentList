@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  padding: 50px;
+}
+
+.comments-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  gap: 20px;
+}
+.container-item:nth-child(1) {
+  width: 25%;
+}
+.container-item:nth-child(2) {
+  width: 50%;
+}
+.container-item:nth-child(3) {
+  width: 25%;
+}
+
+.comment-textarea-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.add-reply-section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}

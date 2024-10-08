@@ -1,0 +1,15 @@
+.add-comment-button {
+  background-color: #1d1d1b;
+  border-radius: 100px;
+  width: 123px;
+  height: 48px;
+  border: none;
+  color: #ffffff;
+}
+
+.reply-button {
+  float: right;
+  width: 100px;
+  border: none;
+  background: transparent;
+}
