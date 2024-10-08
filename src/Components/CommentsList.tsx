@@ -5,16 +5,16 @@ import "../CSS/container.css";
 import "../CSS/label.css";
 import "../CSS/comment.css";
 import Comment from "./Comment";
-import { CommentType } from "../Interface";
-import { db } from "../firebase";
+import { CommentType } from "../Interfaces/Interface";
 import { getDocs, collection, addDoc } from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
+import { commentsCollectionRef } from "./Constants";
 
 const CommentsList = () => {
   const [newComment, setNewComment] = useState<string>("");
   const [comments, setComments] = useState<CommentType[]>([]);
 
-  const commentsCollectionRef = collection(db, "comments");
+  // const commentsCollectionRef = collection(db, "comments");
 
   const getComments = async () => {
     try {

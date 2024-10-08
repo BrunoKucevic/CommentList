@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import image from "../Images/avatar.jpg";
 import "../CSS/image.css";
-import { CommentType } from "../Interface";
-import { db } from "../firebase";
+import { CommentType } from "../Interfaces/Interface";
 import {
   getDocs,
-  collection,
   addDoc,
   doc,
   deleteDoc,
@@ -13,6 +11,7 @@ import {
   where,
 } from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
+import { commentsCollectionRef, repliesCollectionRef } from "./Constants";
 
 interface CommentProps {
   comment: CommentType;
@@ -27,8 +26,8 @@ function Comment({ comment, depth, refetch }: CommentProps) {
   const [replies, setReplies] = useState<CommentType[]>([]);
   const [isLoading, setisLoading] = useState<boolean>(false);
 
-  const repliesCollectionRef = collection(db, "replies");
-  const commentsCollectionRef = collection(db, "comments");
+  // const repliesCollectionRef = collection(db, "replies");
+  // const commentsCollectionRef = collection(db, "comments");
 
   const getReplies = async () => {
     setisLoading(true);
