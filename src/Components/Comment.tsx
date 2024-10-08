@@ -11,7 +11,7 @@ import {
   where,
 } from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
-import { commentsCollectionRef, repliesCollectionRef } from "./Constants";
+import { commentsCollectionRef, repliesCollectionRef } from "../Constants";
 
 interface CommentProps {
   comment: CommentType;
@@ -24,13 +24,8 @@ function Comment({ comment, depth, refetch }: CommentProps) {
   const [showCancel, setShowCancel] = useState<boolean>(false);
   const [replyInputValue, setReplyInputValue] = useState<string>("");
   const [replies, setReplies] = useState<CommentType[]>([]);
-  const [isLoading, setisLoading] = useState<boolean>(false);
-
-  // const repliesCollectionRef = collection(db, "replies");
-  // const commentsCollectionRef = collection(db, "comments");
 
   const getReplies = async () => {
-    setisLoading(true);
     try {
       const q = query(
         repliesCollectionRef,
@@ -43,7 +38,6 @@ function Comment({ comment, depth, refetch }: CommentProps) {
         id: doc.id,
       })) as CommentType[];
       setReplies(filtered);
-      setisLoading(false);
     } catch (error) {
       console.error(error);
     }
