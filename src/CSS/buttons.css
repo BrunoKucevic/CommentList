@@ -13,3 +13,10 @@
   border: none;
   background: transparent;
 }
+
+.delete-button {
+  background: transparent;
+  border: none;
+  width: 60px;
+  height: 60px;
+}

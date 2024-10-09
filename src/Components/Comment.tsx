@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import image from "../Images/avatar.jpg";
+import avatarImage from "../Images/avatar.jpg";
+import deleteImage from "../Images/delete_02.jpg";
 import "../CSS/image.css";
 import { CommentType } from "../Interfaces/Interface";
 import {
@@ -103,7 +104,7 @@ function Comment({ comment, depth, refetch }: CommentProps) {
     <div className="comment-main-container">
       <div className="comment">
         <div className="comment-item" style={{ marginLeft: `${depth * 30}px` }}>
-          <img src={image}></img>
+          <img src={avatarImage}></img>
         </div>
         <div className="comment-item">
           <div className="comment-section">
@@ -131,7 +132,9 @@ function Comment({ comment, depth, refetch }: CommentProps) {
           </div>
         </div>
         <div className="comment-item">
-          <button onClick={handleDelete}>Delete</button>
+          <button className="delete-button" onClick={handleDelete}>
+            <img className="delete" src={deleteImage}></img>
+          </button>
         </div>
       </div>
       {replies?.length > 0 && (
